@@ -2,22 +2,20 @@ const dotenv = require('dotenv');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const { Client } = require('pg');
+const mongoose = require('mongoose');
 dotenv.config();
 
-
-const client = new Client({
-    user: process.env.DB_USERNAME,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
-});
-
-client.connect();
-
-
 const app = express();
+
+// db connection
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB Connected 🍕"));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: 'false' }));
