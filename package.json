@@ -2,8 +2,10 @@
   "name": "retail-store-system",
   "version": "1.0.0",
   "description": "retail store system with some discounting logic",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
+    "start": "npm run build && node ./build/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,16 +23,14 @@
   },
   "homepage": "https://github.com/abdelrahman-gad/retail-store-system#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "@babel/runtime": "^7.9.6",
-    "@types/jest": "^25.2.2",
     "babel-jest": "^26.0.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv-extended": "^2.8.0",
+    "express": "^4.17.1",
     "express-validator": "^6.4.0",
-    "faker": "^4.1.0",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "jest": "^26.0.1",
@@ -39,19 +39,11 @@
     "pg": "^8.2.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.9",
-    "supertest": "^4.0.2",
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/register": "^7.9.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0",
+    "faker": "^4.1.0",
+    "supertest": "^3.4.2",
     "nodemon": "^2.0.3",
     "nyc": "^15.0.1",
     "sequelize-cli": "^5.5.1"
